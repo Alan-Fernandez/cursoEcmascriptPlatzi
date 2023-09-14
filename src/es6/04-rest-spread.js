@@ -30,6 +30,9 @@ let country = "COL"
 let data = { ...person, country };
 console.log(data);
 
+let data2 = {id: 1, ...person, country};
+console.log(data2);
+
 //Rest
 
 function sum(num, ...values) {
