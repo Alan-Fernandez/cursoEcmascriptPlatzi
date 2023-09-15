@@ -1,78 +1,91 @@
-// declarando
-class User {};
-// Instancia de una clase
-// const newUser = new User();
+//Hablaremos de los objetos, clases, metodos e instancias (para dudas o terminologia ve a one note)
+/*
+This= hace referencia al elemento padre que lo contiene
+intancia = crear un nuevo objeto
+metodo= funcion dentro del objeto
+contructor= funcion qe se realiza inmediatamente al instanciar ( crear objeto)
+clase= es el elemento padre
+get= me trae el valor de un objeto, y set me reescribe el valor del objeto
+*/
 
+
+//Declarando una clase (osea el padre el molde de los objetos)
+class User0 {};
+// para instanciar una clase se usa:
+const newUser01 = new User0();
+
+//Ejemplo con 2 instancias y un metodo
 class user {
-    //metodos
-    greeting(){
-        return 'Hello';
+    greetings(){
+        return 'Metodo Saludar';
     }
 };
+const newUser = new user();
+console.log(newUser.greetings());
+const newUser1 = new user();
+console.log(newUser1.greetings());
 
-//instancia de user
-const gndx = new user();
-console.log(gndx.greeting());
 
-const bebeloper = new user();
-console.log(bebeloper.greeting())
-
-//Constructor
+//
 class user {
-    //Constructor
+    //El constructor, costruye o ejecuta una funcion cuando estoy creando una instancia
     constructor(){
-        console.log('Nuevo Usuario');
+        console.log('Creando nuevo usuario');
     }
-    greeting(){
-        return 'Hello';
-    }
-}
-
-const pedro = new user()
-
-//this 
-class user {
-    constructor(name){
-        this.name = name
-    }
-    // metodos
-    speak(){
-        return 'Hello';
-    }
-    greeting(){
-        return`${this.speak()} ${this.name}`;
+    greetings(){
+        return 'Metodo saludar';
     }
 }
+const david = new user();
+console.log(david.greetings());
 
-const ana = new user('Ana');
+//En este ejemplo con this, inicializamos una variable de una clase (de creacion), ademas usamos template literals
 
-console.log(ana.greeting())
 
-// setters getters
-
-class user {
-    //constructos
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
-    }
-    //metodo
-    speak() {
-        return 'Hello';
-    }
-
-    greeting(){
-        return`${this.speak()} ${this.name}`
+    class user {
+        constructor(name){
+            this.name = name;
+        }
+        //Añado metodos
+        speak (){
+            return 'Hoy saludamos a: ' ;
+        }
+        greeting(){
+            //uso template literals
+            return `${this.speak()} ${this.name}`;
+        }
     }
 
-    get uAge(){
-        return this.age;
-    }
-    set uAge(n){
-        this.age = n;
-    }
-}
+    const jimena = new user('jimena');
+    console.log(jimena.greeting());
 
-const bebeloperOne = new user('pedro', 15);
-console.log(bebeloperOne.uAge);
-console.log(bebeloperOne.uAge = 20)
+    //Ejemplo con setter and getters, nos sive para llamar el valor de una variable dentro de un ubjeto creado
+
+    class user {
+        //constructor
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        //metods
+        speak(){
+            return 'Hola:' ;
+        }
+        greeting(){
+            return `${this.speak()} ${this.name} su edad es : ${this.age}`;
+        }
+        //Añado los getters and setters
+        get modifyAge() {
+            return this.age;
+        }
+        set modifyAge(n){
+            this.age = n;
+        }
+    }
+
+    const maria = new user('Maria', 31.6);
+    console.log(maria.greeting());
+    //con get lo llamo para ver el valor
+    console.log(maria.modifyAge);
+    //con set lo 
+    console.log(maria.modifyAge = 22);
